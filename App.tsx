@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import { motion as motionBase, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, Heart, User } from 'lucide-react';
+import { X, User } from 'lucide-react';
 import { PRODUCTS } from './constants';
 import { Product, CartItem } from './types';
 import Header from './components/Header';
@@ -79,6 +79,7 @@ const App: React.FC = () => {
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
+    // HashRouter est idéal pour GitHub Pages car il ne nécessite pas de configuration serveur 404
     <HashRouter>
       <div className="min-h-screen flex flex-col relative overflow-x-hidden bg-[#fcfaf7]">
         <Header 
