@@ -5,14 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L'Élégance Moderne | Maison de Couture</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
       :root {
         --quad-bg: #fcfaf7;
         --quad-text: #121212;
-        --quad-accent: #a39081;
-        --quad-border: rgba(18, 18, 18, 0.08);
       }
       body {
         font-family: 'Inter', sans-serif;
@@ -21,41 +23,59 @@
         margin: 0;
         padding: 0;
         overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
       }
       h1, h2, h3, .serif {
         font-family: 'Cormorant Garamond', serif;
       }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      /* Animation de dessin de ligne */
-      .line-draw {
-        background-color: var(--quad-text);
-        opacity: 0.1;
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      /* Animation de chargement */
+      #loader {
+        position: fixed;
+        inset: 0;
+        background: #fcfaf7;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease-out;
       }
     </style>
+
     <script type="importmap">
-    {
-      "imports": {
-        "framer-motion": "https://esm.sh/framer-motion@^12.24.7",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-        "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
-      }
-    }
+{
+  "imports": {
+    "framer-motion": "https://esm.sh/framer-motion@^12.24.7",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+
+    <script>
+      window.process = { env: { API_KEY: "" } };
     </script>
-    <!-- CRUCIAL: Ajout du script pour l'entrée de l'application -->
-    <script type="module" src="./index.tsx"></script>
+
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="index.tsx"></script>
   </head>
   <body>
+    <div id="loader"><p class="serif italic text-2xl">Chargement de l'atelier...</p></div>
     <div id="root"></div>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loader = document.getElementById('loader');
+          if(loader) loader.style.opacity = '0';
+          setTimeout(() => loader && loader.remove(), 500);
+        }, 1000);
+      });
+    </script>
   </body>
 </html>

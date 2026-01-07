@@ -3,21 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import { motion as motionBase, AnimatePresence } from 'framer-motion';
 import { X, User } from 'lucide-react';
-import { PRODUCTS } from './constants';
-import { Product, CartItem } from './types';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Shop from './pages/Shop';
-import ProductDetail from './pages/ProductDetail';
-import Support from './pages/Support';
-import Contact from './pages/Contact';
-import Shipping from './pages/Shipping';
-import Returns from './pages/Returns';
-import Admin from './pages/Admin';
-import Auth from './pages/Auth';
-import CartDrawer from './components/CartDrawer';
-import GeminiAssistant from './components/GeminiAssistant';
+import { PRODUCTS } from './constants.ts';
+import { Product, CartItem } from './types.ts';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import Shop from './pages/Shop.tsx';
+import ProductDetail from './pages/ProductDetail.tsx';
+import Support from './pages/Support.tsx';
+import Contact from './pages/Contact.tsx';
+import Shipping from './pages/Shipping.tsx';
+import Returns from './pages/Returns.tsx';
+import Admin from './pages/Admin.tsx';
+import Auth from './pages/Auth.tsx';
+import CartDrawer from './components/CartDrawer.tsx';
+import GeminiAssistant from './components/GeminiAssistant.tsx';
 
 const motion = motionBase as any;
 
@@ -79,7 +79,6 @@ const App: React.FC = () => {
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    // HashRouter est idéal pour GitHub Pages car il ne nécessite pas de configuration serveur 404
     <HashRouter>
       <div className="min-h-screen flex flex-col relative overflow-x-hidden bg-[#fcfaf7]">
         <Header 
