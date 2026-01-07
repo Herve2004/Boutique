@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'Élégance Moderne | Maison de Couture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --quad-bg: #fcfaf7;
+        --quad-text: #121212;
+        --quad-accent: #a39081;
+        --quad-border: rgba(18, 18, 18, 0.08);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--quad-bg);
+        color: var(--quad-text);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, .serif {
+        font-family: 'Cormorant Garamond', serif;
+      }
+      .apple-glass {
+        background: rgba(252, 250, 247, 0.85);
+        backdrop-filter: blur(10px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .structural-border {
+        border: 0.5px solid var(--quad-border);
+      }
+      .structural-border-b {
+        border-bottom: 0.5px solid var(--quad-border);
+      }
+      .reveal-text {
+        overflow: hidden;
+        display: inline-block;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "framer-motion": "https://esm.sh/framer-motion@^12.24.7",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
